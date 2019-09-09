@@ -77,6 +77,9 @@ INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES (
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('MobileTypeID','iOS', 1, 2, GETDATE()) 
 
 
+INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','조정장로', 1, 5, GETDATE()) 
+
+
 
 -- ===================
 -- TB_Metro >> Metros 
