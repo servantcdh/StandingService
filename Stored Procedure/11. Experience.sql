@@ -108,6 +108,8 @@ FROM dbo.Admins aa
 		ON aa.MetroID=mm.MetroID 
 WHERE aa.AdminID=@AdminID 
 
+SELECT @@ROWCOUNT
+
 
 
 
@@ -165,6 +167,8 @@ FROM dbo.Experiences e
 WHERE 
 	e.ExperienceID=@ExperienceID 
 
+SELECT @@ROWCOUNT
+
 
 
 
@@ -205,6 +209,7 @@ INSERT INTO dbo.Experiences (
 	, GETDATE()  
 ) 
 
+SELECT @@ROWCOUNT
 
 
 SET ANSI_NULLS ON
@@ -218,7 +223,7 @@ GO
 -- Description:	대특공 경험담관리 - 경험담수정
 -- =============================================
 
-CREATE PROCEDURE [dbo].[uspSetStandingServiceExperienceUpdate]
+ALTER PROCEDURE [dbo].[uspSetStandingServiceExperienceUpdate]
 	@ExperienceID int 
 	, @PublisherID int  
 	, @Contents nvarchar(max)
@@ -233,6 +238,7 @@ UPDATE e SET
 FROM dbo.Experiences e
 WHERE e.ExperienceID=@ExperienceID
 
+SELECT @@ROWCOUNT
 
 
 
@@ -249,7 +255,7 @@ GO
 -- Description:	대특공 경험담관리 - 경험담승인 
 -- =============================================
 
-CREATE PROCEDURE [dbo].[uspSetStandingServiceExperienceBranchConfirm]
+ALTER PROCEDURE [dbo].[uspSetStandingServiceExperienceBranchConfirm]
 	@ExperienceID int 
 	, @BranchConfirmYn bit  
 AS
@@ -260,6 +266,7 @@ UPDATE e SET e.BranchConfirmYn=@BranchConfirmYn, e.UpdateDate=GETDATE()
 FROM dbo.Experiences e
 WHERE e.ExperienceID=@ExperienceID
 
+SELECT @@ROWCOUNT
 
 
 
@@ -275,7 +282,7 @@ GO
 -- Description:	대특공 경험담관리 - 경험담삭제
 -- =============================================
 
-CREATE PROCEDURE [dbo].[uspSetStandingServiceExperienceDelete]
+ALTER PROCEDURE [dbo].[uspSetStandingServiceExperienceDelete]
 	@ExperienceID int 
 	, @UseYn bit  
 AS
@@ -286,3 +293,4 @@ UPDATE e SET e.UseYn=@UseYn, e.UpdateDate=GETDATE()
 FROM dbo.Experiences e
 WHERE e.ExperienceID=@ExperienceID
 
+SELECT @@ROWCOUNT
