@@ -5,14 +5,15 @@ go
 -- ItemCodes 코드등록 
 -- ===================
 
-SELECT TOP 10 * FROM ItemCodes
+SELECT TOP 100 * FROM ItemCodes
 
 -- SELECT TOP 10 * FROM dbo.Admins 
 
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','관리자', 1, 1, GETDATE()) 
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','지부사무실', 1, 2, GETDATE()) 
-INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','도시순회감독자', 1, 3, GETDATE()) 
+INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','순회감독자', 1, 3, GETDATE()) 
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','순회구보조자', 1, 4, GETDATE()) 
+INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','조정장로', 1, 5, GETDATE()) 
 
 
 SELECT TOP 10 * FROM SMPW.dbo.TB_Code WHERE Ckind = 'SERVANT1'
@@ -51,6 +52,7 @@ INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES (
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ProductKindID','서적', 1, 2, GETDATE()) 
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ProductKindID','잡지', 1, 3, GETDATE()) 
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ProductKindID','팜플렛', 1, 4, GETDATE()) 
+INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ProductKindID','동영상', 1, 5, GETDATE()) 
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ProductKindID','기타', 1, 5, GETDATE()) 
 
 -- SELECT TOP 10 * FROM SMPW.dbo.TB_Code WHERE Ckind = 'LANGUAGE'
@@ -77,7 +79,6 @@ INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES (
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('MobileTypeID','iOS', 1, 2, GETDATE()) 
 
 
-INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('AdminRoleID','조정장로', 1, 5, GETDATE()) 
 
 
 
@@ -128,10 +129,13 @@ GROUP BY CongName HAVING COUNT(*)>1
 
 SELECT * FROM dbo.ItemCodes WHERE Separate='ProductKindID'
 
-SELECT TOP 10 * FROM StandingSrv.dbo.Products 
+SELECT * FROM StandingSrv.dbo.Products 
 
 SELECT * FROM SMPW.dbo.TB_Publication WHERE PubCode IN ('P0299', 'P0399','P0401','P0501','P1001','P2001','P3001')
 
+
+INSERT INTO StandingSrv.dbo.Products (ProductCode, ProductName, ProductAlias, ProductKindID, Language, UseYn, OrderNum, CreateDate)  
+SELECT 'P000', '동영상','동영상',27,'한국어', 1, 1, GETDATE()) 
 
 INSERT INTO StandingSrv.dbo.Products (ProductCode, ProductName, ProductAlias, ProductKindID, Language, UseYn, OrderNum, CreateDate)  
 SELECT 
@@ -152,7 +156,6 @@ FROM SMPW.dbo.TB_Publication
 WHERE PubCode NOT IN ('P0299', 'P0399','P0401','P0501','P1001','P2001','P3001')
 
 
-SELECT TOP 10 * FROM StandingSrv.dbo.Products 
 
 
 
