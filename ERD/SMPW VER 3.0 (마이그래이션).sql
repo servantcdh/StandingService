@@ -79,7 +79,9 @@ INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES (
 INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('MobileTypeID','iOS', 1, 2, GETDATE()) 
 
 
-
+INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ReceiveGroupID','순회감독자', 1, 1, GETDATE()) 
+INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ReceiveGroupID','조정장로', 1, 2, GETDATE()) 
+INSERT INTO dbo.ItemCodes (Separate, Item, UseYn, OrderNum, CreateDate) VALUES ('ReceiveGroupID','봉사자전체', 1, 3, GETDATE()) 
 
 
 -- ===================
